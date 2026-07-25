@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Relief Projects India supports humanitarian projects in education, gender equality, and health, empowering children and rural communities in Tamil Nadu.">
+    <title>Relief Projects India</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .home-intro {
+            background: #ffffff;
+            padding: 64px 0;
+            text-align: center;
+        }
+        .home-intro p {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: #384558;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(30, 50, 90, 0.06);
+        }
+        .feature-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .feature-card-content {
+            padding: 30px;
+        }
+        .feature-card-content h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .feature-card-content p {
+            color: #384558;
+            margin-bottom: 20px;
+        }
+        .news-section {
+            background: #f8fbff;
+        }
+        .news-intro {
+            max-width: 680px;
+            margin: 0 auto 28px;
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+        }
+        .news-list {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(30, 50, 90, 0.06);
+            overflow: hidden;
+        }
+        .news-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 18px;
+            align-items: center;
+            padding: 18px 22px;
+            border-bottom: 1px solid #eef1f8;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-date {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2f55d4;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .news-text {
+            color: #384558;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .news-links {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        .news-links a {
+            display: inline-block;
+            background: #eef4ff;
+            color: #2f55d4;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 7px 12px;
+            border-radius: 50px;
+        }
+        .news-links a:hover {
+            background: #dce8ff;
+        }
+        .news-note {
+            max-width: 860px;
+            margin: 18px auto 0;
+            color: #748097;
+            font-size: 14px;
+            text-align: center;
+        }
+        .support-section {
+            background: #eef4ff;
+            padding: 70px 0;
+        }
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .support-grid h2 {
+            text-align: left;
+        }
+        @media (max-width: 900px) {
+            .feature-grid,
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+            .news-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                align-items: start;
+            }
+            .news-links {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+            <img src="images/rpi-logo-blue-long.png" alt="Relief Projects India" class="site-logo">
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="mountain-view-school.html">Mountain View School</a>
+            <a href="community-programs.html">Community Programmes</a>
+            <a href="contact.html">Donate &amp; Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" aria-label="Relief Projects India photo slideshow">
+        <img src="images/happy-kids.jpg" class="slide active" alt="Students at Mountain View School">
+        <img src="images/teen-activities.jpg" class="slide" alt="Children learning in class">
+        <img src="images/tuition-students.jpg" class="slide" alt="Community programme activity">
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <p class="eyebrow">Education • Health • Community</p>
+            <h1>Helping Rural Children Build Brighter Futures</h1>
+            <p class="hero-intro">Relief Projects India supports children and families in rural Tamil Nadu through Mountain View School and village-based community programmes.</p>
+        </div>
+
+        <div class="slide-dots" aria-hidden="true">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section class="home-intro">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>Relief Projects India is a grassroots nonprofit working in and around Usilampatti, Madurai District, Tamil Nadu. Since 2009, we have partnered with rural farming communities to give children — especially girls — the education, health awareness, and family support they need to grow up safely and confidently. Our work spans Mountain View School, free evening tuition centres, and a range of community programmes addressing health, protection, and women's empowerment across the villages we serve.</p>
+        </div>
+    </section>
+
+    <section class="impact">
+        <div class="container impact-grid">
+            <div class="impact-item">
+                <strong>305</strong>
+                <span>Children currently enrolled</span>
+            </div>
+            <div class="impact-item">
+                <strong>10</strong>
+                <span>Free evening tuition centres</span>
+            </div>
+            <div class="impact-item">
+                <strong>25+</strong>
+                <span>Villages served</span>
+            </div>
+            <div class="impact-item">
+                <strong>14,000+</strong>
+                <span>People reached</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section split-section">
+        <div class="container">
+            <h2>Our Main Work</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <img src="images/school.jpg" alt="Mountain View School building">
+                    <div class="feature-card-content">
+                        <h3>Mountain View School</h3>
+                        <p>Quality English-medium education for children from rural farming communities, with a long-term plan to expand through secondary school.</p>
+                        <a href="mountain-view-school.html" class="text-link">Learn more about the school</a>
+                    </div>
+                </article>
+
+                <article class="feature-card">
+                    <img src="images/medical-camp.jpg" alt="free eye camp">
+                    <div class="feature-card-content">
+                        <h3>Community Programmes</h3>
+                        <p>Village-based tuition centres, girls' empowerment, health awareness, adolescent development, and family support programmes.</p>
+                        <a href="community-programs.html" class="text-link">Learn more about community work</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section news-section">
+        <div class="container">
+            <h2>Latest News</h2>
+            <p class="news-intro">Follow recent updates from Relief Projects India, Mountain View School, and our community programmes.</p>
+
+            <div class="news-list">
+                <!--
+                    To add a new news item, copy one whole .news-item block and paste it above the older items.
+                    Replace the date, short text, and the Facebook / Instagram links.
+                    If you only have one link, delete the other <a> tag.
+                    IMPORTANT: Links must include the full https:// address.
+                -->
+
+                <div class="news-item">
+                     <div class="news-date">Jul 15th 2026</div>
+                    <div class="news-text">Education Development Day was celebrated by inspiring students with the remarkable life and legacy of former Tamil Nadu Chief Minister K. Kamaraj, whose vision transformed education across the state.</div>
+                    <div class="news-links">
+                        <a href="https://www.facebook.com/share/p/1971sZbLWU/" target="_blank" rel="noopener noreferrer">View on Facebook</a>
+                        <a href="https://www.instagram.com/p/Da4g7WzE3_C/?igsh=aHZlMnR1Y3Nwd20y" target="_blank" rel="noopener noreferrer">View on Instagram</a>
+                    </div>
+                    <div class="news-date">May 2026</div>
+                    <div class="news-text">We held a wonderful summer camp for children who attend our free tuition centres. An average of 120 children attended the 5-day camp, participating in sports, art, dance and other fun activities.</div>
+                    <div class="news-links">
+                        <a href="https://www.facebook.com/share/p/1JPRpHnLcc/" target="_blank" rel="noopener noreferrer">View on Facebook</a>
+                        <a href="https://www.instagram.com/p/DYOaZSZjOgD/" target="_blank" rel="noopener noreferrer">View on Instagram</a>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-date">May 2026</div>
+                    <div class="news-text">Former Mountain View students achieve outstanding 10th Standard Public Examination results, including scores of 488 and 478 out of 500.</div>
+                    <div class="news-links">
+                        <a href="https://www.facebook.com/share/p/197CT9SzRH/" target="_blank" rel="noopener noreferrer">View on Facebook</a>
+                        <a href="https://www.instagram.com/p/DZrxQIYzK0Y/?igsh=MWl0czU1MW0ydjBkaA==" target="_blank" rel="noopener noreferrer">View on Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="support-section" id="donate">
+        <div class="container support-grid">
+            <div>
+                <h2>Support Our Mission</h2>
+                <p>You can help us expand educational opportunities, support vulnerable children, and strengthen community programmes across rural Tamil Nadu.</p>
+                <p>Donations directly support classrooms, tuition centres, health camps, and sponsorships for children from low-income families.</p>
+            </div>
+            <div class="bank-box">
+                <h3>Ready to Help?</h3>
+                <p>Bank transfer details, tax-deduction information, and other ways to give are all on our donate page.</p>
+                <a href="contact.html#donate" class="button">Donate Now</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <p>&copy; Relief Projects India</p>
+        <p>Email: reliefprojects@gmail.com | Phone: +91 97902 68894</p>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

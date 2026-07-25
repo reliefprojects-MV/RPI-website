@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate &amp; Contact – Relief Projects India</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* ── Page hero ── */
+        .page-hero {
+            position: relative;
+            width: 100%;
+            height: 42vh;
+            min-height: 280px;
+            max-height: 440px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 48px;
+        }
+        .page-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 15, 50, 0.05) 0%,
+                rgba(5, 15, 50, 0.30) 60%,
+                rgba(5, 15, 50, 0.55) 100%
+            );
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero h1 {
+            color: #ffffff;
+            margin: 0 0 12px;
+            font-size: clamp(30px, 5vw, 48px);
+        }
+        .page-hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.88);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── Section label ── */
+        .section-label {
+            display: inline-block;
+            background: #eef4ff;
+            color: #2f55d4;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 5px 14px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+
+        /* ── Contact persons ── */
+        .contacts-section {
+            padding: 64px 0;
+            background: #f8fbff;
+            border-top: 4px solid #2f55d4;
+        }
+        .contacts-section h2 { text-align: center; 		margin-bottom: 10px; 
+		}
+        .contacts-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 580px;
+            margin: 0 auto 44px;
+        }
+        .contacts-grid {
+    		display:grid;
+    		grid-template-columns:		repeat(3,minmax(300px,1fr));
+    		gap:30px;
+		}
+        .contact-group-title {
+            text-align: center;
+            color: #10256f;
+            font-size: 18px;
+            margin: 8px 0 22px;
+        }
+		.contact-avatar img {
+    		width: 100%;
+    		height: 100%;
+    		object-fit: cover;
+    		object-position: center;
+    		display: block;
+		}
+        .management-title {
+            margin-top: 42px;
+        }
+        .management-grid {
+            grid-template-columns: repeat(2, minmax(260px, 1fr));
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #dce3f5;
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(30,50,90,0.11);
+        }
+      	.contact-avatar {
+    		width: 120px;
+   		 	height: 120px;
+    		margin: 0 auto 20px;
+    		border-radius: 50%;
+    		overflow: hidden;
+    		border: 4px solid #2f55d4;
+    		background: #fff;
+    		box-shadow: 0 8px 20px rgba(0,0,0,.12);
+	}
+        .contact-card h3 { margin: 0 0 4px; font-size: 17px; 	}
+        .contact-role {
+            font-size: 12px;
+            font-weight: 700;
+            color: #2f55d4;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 16px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #384558;
+            padding: 7px 0;
+        }
+        .contact-detail a { color: #2f55d4; text-decoration: none; font-weight: 600; }
+
+        /* ── Main contact + donate split ── */
+        .main-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 44px;
+            align-items: start;
+        }
+
+        /* Form card */
+        .form-card {
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-radius: 16px;
+            padding: 36px;
+        }
+        .form-card h2 { text-align: left; margin-bottom: 8px; }
+        .form-card > p { color: #4a5568; font-size: 15px; margin-top: 0; margin-bottom: 26px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #10256f;
+            margin-bottom: 6px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #dce3f5;
+            border-radius: 8px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 15px;
+            color: #1d2530;
+            background: #ffffff;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2f55d4;
+            box-shadow: 0 0 0 3px rgba(47,85,212,0.12);
+        }
+        .form-group textarea { resize: vertical; min-height: 110px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .submit-btn {
+            display: inline-block;
+            background: #2f55d4;
+            color: #ffffff;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(47, 85, 212, 0.35);
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover {
+            background: #203f9e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(47, 85, 212, 0.45);
+        }
+        .form-note {
+            font-size: 13px;
+            color: #748097;
+            margin-top: 16px;
+        }
+
+        .contact-action-card {
+            min-height: 100%;
+        }
+        .primary-email {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .primary-email-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eef4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .primary-email-label {
+            color: #748097;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+        .primary-email a {
+            color: #10256f;
+            font-size: 18px;
+            font-weight: 700;
+            overflow-wrap: anywhere;
+            text-decoration: none;
+        }
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        .whatsapp-btn {
+            display: inline-block;
+            background: #168f4c;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(22,143,76,0.28);
+            transition: all 0.2s ease;
+        }
+        .whatsapp-btn:hover {
+            background: #10763e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(22,143,76,0.35);
+        }
+
+        /* Quick contact card */
+        .quick-card {
+            background: linear-gradient(135deg, #10256f 0%, #1a3a9e 100%);
+            border-radius: 16px;
+            padding: 32px;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+        .quick-card h3 {
+            color: #ffffff;
+            margin: 0 0 18px;
+            font-size: 19px;
+        }
+        .quick-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+        .quick-row:last-child { border-bottom: none; }
+        .quick-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .quick-row a { color: #ffffff; text-decoration: none; font-weight: 600; }
+        .quick-row .label { font-size: 12px; color: #a8c4ff; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+        .quick-row .value { font-size: 15px; }
+
+        .address-card {
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-radius: 16px;
+            padding: 28px;
+        }
+        .address-card h3 { margin: 0 0 14px; font-size: 18px; }
+        .address-card p { margin: 0; font-size: 15px; color: #384558; line-height: 1.7; }
+
+        /* ── Donate section ── */
+        .donate-section {
+            padding: 70px 0;
+            background: #eef4ff;
+        }
+        .donate-section h2 { text-align: center; margin-bottom: 10px; }
+        .donate-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 600px;
+            margin: 0 auto 44px;
+        }
+        .donate-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
+        }
+        .donate-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #dce3f5;
+            padding: 32px;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.06);
+        }
+        .donate-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        .donate-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eef4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .donate-card-header h3 { margin: 0; font-size: 19px; }
+        .bank-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 0;
+            border-bottom: 1px solid #eef1f8;
+        }
+        .bank-row:last-child { border-bottom: none; }
+        .bank-row .bank-label { font-size: 13px; color: #748097; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+        .bank-row .bank-value { font-size: 16px; color: #10256f; font-weight: 700; font-family: monospace; }
+        .cheque-text p { margin: 0 0 8px; font-size: 15px; color: #384558; line-height: 1.65; }
+        .cheque-text strong { color: #10256f; }
+        .qr-box {
+            background: #f8fbff;
+            border: 2px dashed #9db2e6;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #344b91;
+            font-weight: bold;
+            text-align: center;
+            margin: 18px auto 0;
+            font-size: 14px;
+        }
+
+        /* Tax note */
+        .tax-note {
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-left: 4px solid #2f55d4;
+            border-radius: 10px;
+            padding: 22px 26px;
+            margin-top: 28px;
+            font-size: 15px;
+            color: #384558;
+            line-height: 1.65;
+        }
+        .tax-note strong { color: #10256f; }
+
+        /* ── Other ways ── */
+        .ways-section {
+            padding: 64px 0;
+            background: #ffffff;
+        }
+        .ways-section h2 { text-align: center; margin-bottom: 10px; }
+        .ways-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 560px;
+            margin: 0 auto 40px;
+        }
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .way-card {
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-radius: 12px;
+            padding: 26px 22px;
+            text-align: center;
+        }
+        .way-card .icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .way-card h3 { margin: 0 0 8px; font-size: 16px; }
+        .way-card p { margin: 0; font-size: 14px; color: #4a5568; line-height: 1.6; }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .main-grid,
+            .donate-grid { grid-template-columns: 1fr; }
+            .contacts-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+        }
+        @media (max-width: 600px) {
+            .page-hero { height: 38vh; min-height: 240px; padding-bottom: 36px; }
+            .form-row { grid-template-columns: 1fr; }
+            .ways-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+            <img src="images/rpi-logo-blue-long.png" alt="Relief Projects India" class="site-logo">
+        </a>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="mountain-view-school.html">Mountain View School</a>
+            <a href="community-programs.html">Community Programmes</a>
+            <a href="contact.html" class="active">Donate &amp; Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <img src="images/contact.jpg" alt="Children at Mountain View School" class="page-hero-img">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="container">
+                <span class="section-label" style="background:rgba(255,255,255,0.15); color:#ffffff;">Get In Touch</span>
+                <h1>Donate &amp; Contact</h1>
+                <p>Reach out with questions, partnership ideas, or to support our work in rural Tamil Nadu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT PERSONS -->
+    <section class="contacts-section">
+        <div class="container">
+            <span class="section-label">Speak to Us Directly</span>
+            <h2>Contact Persons</h2>
+            <p class="contacts-intro">For donations, partnerships, school enquiries, programme questions, or media enquiries, please contact the appropriate member of our board or management team.</p>
+
+            <h3 class="contact-group-title">Board of Trustees</h3>
+            <div class="contacts-grid">
+
+                <div class="contact-card">
+                    <div class="contact-avatar"><img src="images/sumanthRam.jpg" alt="Sumanth Ram Sriram"></div>
+                    <h3>Sumanth Ram Sriram</h3>
+                    <div class="contact-role">Managing Trustee</div>
+                    <div class="contact-detail">📞 <a href="tel:+919500388883">+91 95003 88883</a></div>
+                    <div class="contact-detail">✉️ <a href="mailto:s.sumanthram@gmail.com">s.sumanthram@gmail.com</a></div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-avatar"><img src="images/shiva.jpg" alt="Shiva raj"></div>
+                    <h3>Shiva Raj</h3>
+                    <div class="contact-role">Trustee · Professional Educator</div>
+                    <div class="contact-detail">📞 <a href="tel:+919943360611">+91 99433 60611</a></div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-avatar"><img src="images/tina.jpg" alt="Celestina Cavinder"></div>
+                    <h3>Celestina Cavinder</h3>
+                    <div class="contact-role">Board Member</div>
+                    <div class="contact-detail">📞 <a href="tel:+919886039397">+91 98860 39397</a></div>
+                </div>
+
+            </div>
+
+            <h3 class="contact-group-title management-title">Management</h3>
+            <div class="contacts-grid management-grid">
+
+                <div class="contact-card">
+                    <div class="contact-avatar"><img src="images/nelson.jpg" alt="Nelson Chandrasekar"></div>
+                    <h3>Nelson Chandrasekar</h3>
+                    <div class="contact-role">General Manager</div>
+                    <div class="contact-detail">📞 <a href="tel:+919790268894">+91 97902 68894</a></div>
+                    <div class="contact-detail">✉️ <a href="mailto:nelsonreliefprojectsindia@gmail.com">nelsonreliefprojectsindia@gmail.com</a></div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-avatar"><img src="images/susanna.jpg" alt="Susanna Turcotte"></div>
+                    <h3>Susanna Turcotte</h3>
+                    <div class="contact-role">School Co-founder · Advisory Board · Education Adviser</div>
+                    <div class="contact-detail">📞 <a href="tel:+919787663906">+91 97876 63906</a></div>
+                    <div class="contact-detail">✉️ <a href="mailto:reliefprojects@gmail.com">reliefprojects@gmail.com</a></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM + QUICK CONTACT -->
+    <section class="main-section">
+        <div class="container main-grid">
+
+            <div class="form-card contact-action-card">
+                <span class="section-label">Contact Us</span>
+                <h2>Send Us an Email</h2>
+                <p>For questions about donations, sponsorship, volunteering, partnerships, our school, or community programmes, email us directly.</p>
+
+                <div class="primary-email">
+                    <div class="primary-email-icon">✉️</div>
+                    <div>
+                        <div class="primary-email-label">Main email address</div>
+                        <a href="mailto:reliefprojects@gmail.com">reliefprojects@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-actions">
+                    <a href="mailto:reliefprojects@gmail.com?subject=Enquiry%20from%20the%20Relief%20Projects%20India%20website" class="submit-btn">Email Us</a>
+                    <a href="https://wa.me/919790268894?text=Hello%20Relief%20Projects%20India%2C%20I%20would%20like%20to%20make%20an%20enquiry." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                </div>
+
+                <p class="form-note">The Email Us button opens your usual email app. You may also copy the address above and use Gmail or another webmail service.</p>
+            </div>
+
+            <div>
+                <div class="quick-card">
+                    <h3>Quick Contact</h3>
+                    <div class="quick-row">
+                        <div class="quick-icon">✉️</div>
+                        <div>
+                            <div class="label">Email</div>
+                            <div class="value"><a href="mailto:reliefprojects@gmail.com">reliefprojects@gmail.com</a></div>
+                        </div>
+                    </div>
+                    <div class="quick-row">
+                        <div class="quick-icon">📞</div>
+                        <div>
+                            <div class="label">Phone</div>
+                            <div class="value"><a href="tel:+919790268894">+91 97902 68894</a> · <a href="tel:+919500388883">+91 95003 88883</a></div>
+                        </div>
+                    </div>
+                    <div class="quick-row">
+                        <div class="quick-icon">🌐</div>
+                        <div>
+                            <div class="label">Website</div>
+                            <div class="value">www.reliefprojects.org</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="address-card">
+                    <h3>Visit / Write to Us</h3>
+                    <p>
+                        Relief Projects India<br>
+                        Mountain View School<br>
+                        Ambasamuthiram Main Road, E. Puthupatti<br>
+                        Dottappanaickanur Post<br>
+                        Usilampatti Taluk, Madurai District<br>
+                        Tamil Nadu, India – 625 532
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DONATE -->
+    <section class="donate-section" id="donate">
+        <div class="container">
+            <span class="section-label">Support Our Mission</span>
+            <h2>How to Donate</h2>
+            <p class="donate-intro">Your contribution directly funds classrooms, tuition centres, health camps, and sponsorships for children across rural Tamil Nadu.</p>
+
+            <div class="donate-grid">
+
+                <div class="donate-card">
+                    <div class="donate-card-header">
+                        <div class="donate-icon">🏦</div>
+                        <h3>Bank Transfer</h3>
+                    </div>
+                    <div class="bank-row"><span class="bank-label">Account Name</span><span class="bank-value">Relief Projects India</span></div>
+                    <div class="bank-row"><span class="bank-label">Bank</span><span class="bank-value">HDFC Bank Ltd</span></div>
+                    <div class="bank-row"><span class="bank-label">Account No.</span><span class="bank-value">50100342625229</span></div>
+                    <div class="bank-row"><span class="bank-label">IFSC Code</span><span class="bank-value">HDFC0002409</span></div>
+                    <div class="qr-box">QR code placeholder</div>
+                </div>
+
+                <div class="donate-card">
+                    <div class="donate-card-header">
+                        <div class="donate-icon">✉️</div>
+                        <h3>By Cheque</h3>
+                    </div>
+                    <div class="cheque-text">
+                        <p>Cheques can be mailed to:</p>
+                        <p>
+                            <strong>Relief Projects India</strong><br>
+                            Ambasamuthiram Main Road, E. Puthupatti,<br>
+                            Dottappanayakkanur Post,<br>
+                            Usilampatti Taluk, Madurai District,<br>
+                            Tamil Nadu – 625 532
+                        </p>
+                        <p>Please make cheques payable to <strong>Relief Projects India</strong>.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tax-note">
+                <strong>Tax-deductible in India:</strong> Relief Projects India is registered under Section 12AA of the Income Tax Act and holds an 80G(iv) certificate, valid through AY 2026–27 with an extension granted to AY 2031-2032. Eligible donations made by Indian taxpayers may qualify for tax deduction. RPI is also registered with the Central Government to receive CSR funding from corporations. See our <a href="about.html" style="color:#2f55d4; font-weight:700;">About Us</a> page for full registration details.
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER WAYS -->
+    <section class="ways-section">
+        <div class="container">
+            <span class="section-label">Beyond Donations</span>
+            <h2>Other Ways to Help</h2>
+            <p class="ways-intro">Financial support isn't the only way to make a difference — here are a few other ways to get involved.</p>
+            <div class="ways-grid">
+                <div class="way-card">
+                    <span class="icon">🎓</span>
+                    <h3>Sponsor a Child</h3>
+                    <p>Cover the full or partial school fees for a child from a low-income family. Contact us directly to set up a sponsorship.</p>
+                </div>
+                <div class="way-card">
+                    <span class="icon">🏢</span>
+                    <h3>Corporate CSR Funding</h3>
+                    <p>RPI is registered to receive CSR funds from companies. Get in touch to discuss partnership and reporting requirements.</p>
+                </div>
+                <div class="way-card">
+                    <span class="icon">📣</span>
+                    <h3>Spread the Word</h3>
+                    <p>Share our work with your network. Awareness brings new donors, volunteers, and partners to support rural communities in Tamil Nadu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <p>&copy; Relief Projects India</p>
+        <p>Email: reliefprojects@gmail.com | Phone: +91 97902 68894</p>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

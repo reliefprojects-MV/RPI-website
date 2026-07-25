@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain View School – Relief Projects India</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* ── Page hero ── */
+        .page-hero {
+            position: relative;
+            width: 100%;
+            height: 55vh;
+            min-height: 360px;
+            max-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 56px;
+        }
+        .page-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 15, 50, 0.05) 0%,
+                rgba(5, 15, 50, 0.30) 60%,
+                rgba(5, 15, 50, 0.52) 100%
+            );
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero h1 {
+            color: #ffffff;
+            margin: 0 0 14px;
+            font-size: clamp(32px, 5vw, 52px);
+        }
+        .page-hero p {
+            font-size: 19px;
+            color: rgba(255,255,255,0.88);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Shared section label ── */
+        .section-label {
+            display: inline-block;
+            background: #eef4ff;
+            color: #2f55d4;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 5px 14px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+
+        /* ── Intro split ── */
+        .intro-section {
+            padding: 68px 0;
+            background: #f8fbff;
+            border-top: 4px solid #2f55d4;
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 52px;
+            align-items: center;
+        }
+        .intro-grid h2 { text-align: left; margin-bottom: 16px; }
+        .intro-grid p { font-size: 17px; margin-top: 0; }
+        .founded-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #10256f;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin-top: 10px;
+        }
+        .quick-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .fact-box {
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(30,50,90,0.06);
+        }
+        .fact-box strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 38px;
+            color: #10256f;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .fact-box span {
+            font-size: 13px;
+            color: #4a5568;
+        }
+
+        /* ── Vision strip ── */
+        .vision-strip {
+            background: #10256f;
+            padding: 56px 0;
+            text-align: center;
+        }
+        .vision-strip h2 { color: #ffffff; margin-bottom: 14px; }
+        .vision-strip p {
+            color: rgba(255,255,255,0.85);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 36px;
+        }
+        .expansion-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .step {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 22px 16px;
+            position: relative;
+        }
+        .step.current {
+            background: rgba(47,85,212,0.4);
+            border-color: rgba(47,85,212,0.7);
+        }
+        .step-year {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #a8c4ff;
+            margin-bottom: 8px;
+        }
+        .step-grade {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 26px;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .step-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+        }
+        .step-arrow {
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.3);
+            font-size: 18px;
+            z-index: 1;
+        }
+
+        /* ── Education approach ── */
+        .approach-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+        .approach-section h2 { text-align: center; margin-bottom: 10px; }
+        .approach-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 620px;
+            margin: 0 auto 44px;
+        }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+        .approach-card {
+            border-radius: 14px;
+            border: 1px solid #dce3f5;
+            padding: 30px 26px;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.06);
+            border-top: 4px solid #2f55d4;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .approach-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(30,50,90,0.11);
+        }
+        .approach-icon {
+            font-size: 32px;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .approach-card h3 { margin: 0 0 10px; font-size: 18px; }
+        .approach-card p { margin: 0; font-size: 15px; color: #384558; line-height: 1.6; }
+
+        /* ── Enrolment ── */
+        .enrolment-section {
+            padding: 70px 0;
+            background: #eef4ff;
+        }
+        .enrolment-section h2 { text-align: center; margin-bottom: 10px; }
+        .enrolment-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 40px;
+        }
+        .enrolment-table-wrap {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #dce3f5;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.06);
+        }
+        table.enrol-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            background: #ffffff;
+        }
+        .enrol-table thead {
+            background: #10256f;
+            color: #ffffff;
+        }
+        .enrol-table thead th {
+            padding: 13px 20px;
+            text-align: left;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .enrol-table tbody tr:nth-child(even) { background: #f8fbff; }
+        .enrol-table tbody td {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eef1f8;
+            color: #1d2530;
+        }
+        .enrol-table tbody tr:last-child td { border-bottom: none; }
+        .enrol-table td:first-child { font-weight: 600; color: #10256f; }
+        .enrol-table .lockdown td { color: #9aaabb; font-size: 14px; }
+        .enrol-table .highlight td { background: #dce8ff; font-weight: 700; }
+
+        .sponsorship-box {
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.06);
+        }
+        .sponsorship-box h3 { margin-top: 0; }
+        .sponsorship-box p { font-size: 15px; color: #384558; margin-top: 0; }
+        .sponsor-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #eef1f8;
+        }
+        .sponsor-row:last-of-type { border-bottom: none; }
+        .sponsor-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            color: #2f55d4;
+            min-width: 48px;
+            line-height: 1;
+        }
+        .sponsor-desc {
+            font-size: 15px;
+            color: #1d2530;
+        }
+        .sponsor-desc strong { display: block; }
+
+        /* ── Construction needs ── */
+        .needs-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+        .needs-section h2 { text-align: center; margin-bottom: 10px; }
+        .needs-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 640px;
+            margin: 0 auto 40px;
+        }
+        .needs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px;
+        }
+        .need-card {
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-left: 4px solid #2f55d4;
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .need-card h3 { margin: 0 0 6px; font-size: 17px; }
+        .need-card .cost {
+            font-size: 22px;
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #2f55d4;
+            margin: 8px 0 6px;
+        }
+        .need-card p { margin: 0; font-size: 14px; color: #4a5568; }
+        .needs-total {
+            background: #10256f;
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 24px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 26px;
+        }
+        .needs-total span { font-size: 17px; font-weight: 700; }
+        .needs-total strong {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 30px;
+        }
+
+        /* ── CTA ── */
+        .cta-strip {
+            background: linear-gradient(135deg, #1a3a9e 0%, #10256f 100%);
+            padding: 56px 0;
+            text-align: center;
+        }
+        .cta-strip h2 { color: #ffffff; margin: 0 0 14px; text-align: center; }
+        .cta-strip p { color: rgba(255,255,255,0.85); font-size: 17px; margin: 0 0 28px; }
+        .button-outline {
+            display: inline-block;
+            border: 2px solid rgba(255,255,255,0.7);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-left: 12px;
+            transition: all 0.2s ease;
+        }
+        .button-outline:hover { background: rgba(255,255,255,0.15); }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .intro-grid,
+            .enrolment-layout,
+            .needs-grid { grid-template-columns: 1fr; }
+            .expansion-steps { grid-template-columns: repeat(2, 1fr); }
+            .approach-grid { grid-template-columns: repeat(2, 1fr); }
+            .step-arrow { display: none; }
+        }
+        @media (max-width: 600px) {
+            .page-hero { height: 50vh; min-height: 300px; padding-bottom: 40px; }
+            .quick-facts { grid-template-columns: repeat(2, 1fr); }
+            .approach-grid,
+            .expansion-steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+            <img src="images/rpi-logo-blue-long.png" alt="Relief Projects India" class="site-logo">
+        </a>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="mountain-view-school.html" class="active">Mountain View School</a>
+            <a href="community-programs.html">Community Programmes</a>
+            <a href="contact.html">Donate &amp; Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <img src="images/kindergarten-kids.jpg" alt="Happy students at Mountain View School" class="page-hero-img">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="container">
+                <span class="section-label" style="background:rgba(255,255,255,0.15); color:#ffffff;">Est. 2015 · Usilampatti</span>
+                <h1>Mountain View School</h1>
+                <p>Quality English-medium education for children from rural farming communities in Madurai District.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro-section">
+        <div class="container intro-grid">
+            <div>
+                <span class="section-label">Our School</span>
+                <h2>Education That Changes Futures</h2>
+                <p>Mountain View School was founded in 2015 by Susanna Turcotte to provide quality English-medium education to children from economically disadvantaged villages around Usilampatti. Many of these families come from rural farming backgrounds where access to good schooling has historically been limited.</p>
+                <p>The school fills a critical gap — giving children not just academic skills, but the confidence, language ability, and life-skills foundation to break cycles of poverty and build independent futures. This is especially important for girls, who face additional barriers including early marriage and restricted mobility.</p>
+                <span class="founded-badge">📍 E. Puthupatti, Usilampatti Taluk, Madurai District</span>
+            </div>
+            <div class="quick-facts">
+                <div class="fact-box"><strong>305</strong><span>Students enrolled 2025–26</span></div>
+                <div class="fact-box"><strong>2015</strong><span>Year founded</span></div>
+                <div class="fact-box"><strong>800</strong><span>Planned capacity</span></div>
+                <div class="fact-box"><strong>40+</strong><span>Community jobs created</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION / EXPANSION -->
+    <section class="vision-strip">
+        <div class="container">
+            <span class="section-label" style="background:rgba(255,255,255,0.15); color:#a8c4ff;">Growth Plan</span>
+            <h2>Expanding Step by Step</h2>
+            <p>The school currently runs from LKG to Grade 5, with two sections per grade up to Grade 4. The long-term vision is to provide uninterrupted education all the way to Grade 12 — keeping children, especially girls, learning locally in a safe environment.</p>
+            <div class="expansion-steps">
+                <div class="step current">
+                    <div class="step-year">Now</div>
+                    <div class="step-grade">LKG – 5</div>
+                    <div class="step-desc">305 students · 2 sections per grade to Gr 4</div>
+                    <span class="step-arrow">›</span>
+                </div>
+                <div class="step">
+                    <div class="step-year">Next phase</div>
+                    <div class="step-grade">Up to Gr 8</div>
+                    <div class="step-desc">Middle School recognition · 2 sections per grade</div>
+                    <span class="step-arrow">›</span>
+                </div>
+                <div class="step">
+                    <div class="step-year">Long term</div>
+                    <div class="step-grade">Up to Gr 12</div>
+                    <div class="step-desc">Full secondary school · ~800 students</div>
+                    <span class="step-arrow">›</span>
+                </div>
+                <div class="step">
+                    <div class="step-year">Full capacity</div>
+                    <div class="step-grade">425+</div>
+                    <div class="step-desc">Low-income families directly benefited</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION APPROACH -->
+    <section class="approach-section">
+        <div class="container">
+            <span class="section-label">How We Teach</span>
+            <h2>Our Education Approach</h2>
+            <p class="approach-intro">We believe every child deserves an engaging, confidence-building education from the very start — regardless of their family's income or background.</p>
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <span class="approach-icon">🌱</span>
+                    <h3>Strong Early Foundation</h3>
+                    <p>Research shows socioeconomic background shapes learning outcomes as early as age six. Our preschool programme uses activity-based techniques inspired by the Institute for the Achievement of Human Potential, giving every child a confident start before gaps can widen.</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">🧠</span>
+                    <h3>Whole Brain Learning</h3>
+                    <p>Our teachers receive regular training in Whole Brain Learning techniques — an approach that engages children's full cognitive and emotional capacities. This makes lessons more memorable, inclusive, and effective for children from all backgrounds.</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">📖</span>
+                    <h3>Chrysalis World Curriculum</h3>
+                    <p>In primary grades we partner with the Chrysalis World curriculum provider, delivering a structured, enriching programme that develops critical thinking, creativity, and holistic development — going beyond rote learning to prepare children for life.</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">🗣️</span>
+                    <h3>English-Medium Instruction</h3>
+                    <p>All teaching is delivered in English, giving children from rural villages the language skills that open doors to higher education, careers, and opportunities far beyond their immediate community.</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">👧</span>
+                    <h3>Child-Centred Environment</h3>
+                    <p>The school provides a safe, supportive space where children — particularly girls — can learn without the pressures of early marriage, domestic responsibilities, or social discrimination that affect many peers in the region.</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">🤝</span>
+                    <h3>Community Employment</h3>
+                    <p>The school employs over 40 community members as teachers, support staff, drivers, and maintenance personnel — making it a source of stable local livelihoods as well as education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENROLMENT & FEE SUPPORT -->
+    <section class="enrolment-section">
+        <div class="container">
+            <span class="section-label">Students &amp; Support</span>
+            <h2>Enrolment &amp; Fee Support</h2>
+            <p style="text-align:center; color:#4a5568; font-size:17px; max-width:720px; margin:0 auto;">
+                Mountain View School is committed to making quality English-medium education accessible to children from rural and low-income families. Fees are kept as affordable as possible, while additional support is provided to families facing financial hardship.
+            </p>
+
+            <div class="enrolment-layout">
+                <div class="sponsorship-box">
+                    <h3>Growing With Our Community</h3>
+                    <p>After receiving official recognition as a Nursery and Primary School in 2016, enrolment stood at 54 students. Today, the school serves 305 children from LKG to 5th Standard.</p>
+                    <p>This growth reflects the trust placed in the school by local families and the continuing need for affordable, high-quality education within the Usilampatti area.</p>
+                </div>
+
+                <div>
+                    <div class="sponsorship-box">
+                        <h3>Fee Support Programmes</h3>
+                        <p>We recognise that even modest school fees can place a strain on families with limited or irregular incomes. A combination of government support, partial assistance, and full sponsorship helps children continue their education when their families cannot meet the full cost.</p>
+                        <div class="sponsor-row">
+                            <div class="sponsor-num">76</div>
+                            <div class="sponsor-desc"><strong>RTE Support</strong>Students receiving support through the Right to Education programme.</div>
+                        </div>
+                        <div class="sponsor-row">
+                            <div class="sponsor-num">17</div>
+                            <div class="sponsor-desc"><strong>Partial Fee Support</strong>Students from low-income families whose fees are partly supported by Relief Projects India.</div>
+                        </div>
+                        <div class="sponsor-row">
+                            <div class="sponsor-num">2</div>
+                            <div class="sponsor-desc"><strong>Full Sponsorship</strong>Students whose school fees are fully covered by Relief Projects India.</div>
+                        </div>
+                    </div>
+                    <div style="background:#eef4ff; border-radius:12px; padding:22px; margin-top:20px; border:1px solid #dce3f5;">
+                        <p style="margin:0; font-size:15px; color:#10256f;"><strong>Support a child's education</strong><br>Your contribution can help a child remain in school and continue learning in a safe, supportive environment. <a href="contact.html" style="color:#2f55d4; font-weight:700;">Contact us</a> to learn more about sponsorship opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSTRUCTION NEEDS -->
+    <section class="needs-section">
+        <div class="container">
+            <span class="section-label">Immediate Needs</span>
+            <h2>Expanding to Middle School</h2>
+            <p class="needs-intro">To obtain Middle School recognition from the Department of Education and expand to Grade 8, the school needs to construct additional classrooms and ancillary facilities as prescribed by the department.</p>
+            <div class="needs-grid">
+                <div class="need-card">
+                    <h3>4 Additional Classrooms</h3>
+                    <p>Construction of the first floor of the new block, providing the classroom space required for Grade 6–8 expansion.</p>
+                    <div class="cost">₹ 58,07,652</div>
+                </div>
+                <div class="need-card">
+                    <h3>External Staircases</h3>
+                    <p>Construction of 2 external staircases for the 2 existing primary blocks, required for safety compliance and departmental approval.</p>
+                    <div class="cost">₹ 24,00,000</div>
+                </div>
+                <div class="need-card">
+                    <h3>Boundary Wall</h3>
+                    <p>A 6 ft high, 1,200 ft boundary wall with whitewash — required by the Department of Education for school recognition.</p>
+                    <div class="cost">₹ 11,11,500</div>
+                </div>
+                <div class="need-card">
+                    <h3>Additional Resources</h3>
+                    <p>PA system, scooter for the social worker, RO water purifier, and a watchman cabin — supporting day-to-day school operations.</p>
+                    <div class="cost">₹ 3,46,700</div>
+                </div>
+            </div>
+            <div class="needs-total">
+                <span>Total construction &amp; resource requirement</span>
+                <strong>₹ 96,65,852</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-strip">
+        <div class="container">
+            <h2>Help Us Build the Next Classroom</h2>
+            <p>Your support directly funds the construction and resources needed to expand Mountain View School to Grade 8 and beyond.</p>
+            <a href="contact.html" class="button">Donate &amp; Contact</a>
+            <a href="contact.html#donate" class="button-outline">Donate Now</a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <p>&copy; Relief Projects India</p>
+        <p>Email: reliefprojects@gmail.com | Phone: +91 97902 68894</p>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Programmes – Relief Projects India</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* ── Page hero ── */
+        .page-hero {
+            position: relative;
+            width: 100%;
+            height: 55vh;
+            min-height: 360px;
+            max-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 56px;
+        }
+        .page-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 15, 50, 0.05) 0%,
+                rgba(5, 15, 50, 0.30) 60%,
+                rgba(5, 15, 50, 0.52) 100%
+            );
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+        }
+        .page-hero h1 {
+            color: #ffffff;
+            margin: 0 0 14px;
+            font-size: clamp(32px, 5vw, 52px);
+        }
+        .page-hero p {
+            font-size: 19px;
+            color: rgba(255,255,255,0.88);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Section label ── */
+        .section-label {
+            display: inline-block;
+            background: #eef4ff;
+            color: #2f55d4;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 5px 14px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+
+        /* ── Intro ── */
+        .intro-section {
+            padding: 68px 0;
+            background: #f8fbff;
+            border-top: 4px solid #2f55d4;
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 52px;
+            align-items: center;
+        }
+        .intro-grid h2 { text-align: left; margin-bottom: 16px; }
+        .intro-grid p { font-size: 17px; margin-top: 0; }
+        .reach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .reach-box {
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(30,50,90,0.06);
+        }
+        .reach-box strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 38px;
+            color: #10256f;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .reach-box span { font-size: 13px; color: #4a5568; }
+
+        /* ── Why Usilampatti ── */
+        .context-section {
+            background: #10256f;
+            padding: 64px 0;
+        }
+        .context-section h2 { color: #ffffff; text-align: center; margin-bottom: 14px; }
+        .context-intro {
+            color: rgba(255,255,255,0.82);
+            font-size: 17px;
+            text-align: center;
+            max-width: 660px;
+            margin: 0 auto 40px;
+        }
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .challenge-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .challenge-card .icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .challenge-card h3 { color: #a8c4ff; font-size: 16px; margin: 0 0 8px; }
+        .challenge-card p { color: rgba(255,255,255,0.75); font-size: 14px; margin: 0; line-height: 1.6; }
+
+        /* ── Evening tuition ── */
+        .tuition-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+        .tuition-section h2 { text-align: center; margin-bottom: 10px; }
+        .tuition-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 680px;
+            margin: 0 auto 28px;
+        }
+        .tuition-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 760px;
+            margin: 0 auto 42px;
+        }
+        .tuition-summary-card {
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-radius: 12px;
+            padding: 18px 14px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(30,50,90,0.05);
+        }
+        .tuition-summary-card strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 34px;
+            color: #10256f;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .tuition-summary-card span {
+            font-size: 13px;
+            color: #4a5568;
+        }
+        .tuition-grid {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 42px;
+            align-items: center;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .tuition-photo-wrap {
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.08);
+        }
+        .tuition-photo {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 4 / 3;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+        .tuition-points { list-style: none; padding: 0; margin: 0; }
+        .tuition-points li {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid #eef1f8;
+            font-size: 16px;
+            color: #1d2530;
+        }
+        .tuition-points li:last-child { border-bottom: none; }
+        .tuition-points li .bullet {
+            width: 32px;
+            height: 32px;
+            background: #eef4ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ── Programme cards with small images ── */
+        .programmes-section {
+            padding: 70px 0;
+            background: #f8fbff;
+        }
+        .programmes-section h2 { text-align: center; margin-bottom: 10px; }
+        .programmes-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 640px;
+            margin: 0 auto 44px;
+        }
+        .prog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
+        }
+        .prog-card {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #dce3f5;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .prog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(30,50,90,0.11);
+        }
+        .prog-card {
+            padding: 24px;
+        }
+        .prog-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .prog-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .prog-card-header h3 { margin: 0; font-size: 18px; }
+        .prog-card-body p { margin: 0 0 14px; font-size: 15px; color: #384558; line-height: 1.6; }
+        .prog-tag {
+            display: inline-block;
+            background: #eef4ff;
+            color: #2f55d4;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 50px;
+            margin: 2px 3px 2px 0;
+        }
+        @media (max-width: 600px) {
+            .prog-card {
+                padding: 22px 20px;
+            }
+            .prog-card-header {
+                align-items: flex-start;
+            }
+            .prog-icon {
+                width: 46px;
+                height: 46px;
+                font-size: 21px;
+            }
+        }
+
+        /* ── Partners ── */
+        .partners-section {
+            padding: 64px 0;
+            background: #ffffff;
+        }
+        .partners-section h2 { text-align: center; margin-bottom: 10px; }
+        .partners-intro {
+            text-align: center;
+            color: #4a5568;
+            font-size: 17px;
+            max-width: 580px;
+            margin: 0 auto 40px;
+        }
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .partner-pill {
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-radius: 10px;
+            padding: 16px 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: #10256f;
+        }
+        .partner-pill span {
+            display: block;
+            font-size: 12px;
+            color: #4a5568;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        /* ── CTA ── */
+        .cta-strip {
+            background: linear-gradient(135deg, #1a3a9e 0%, #10256f 100%);
+            padding: 56px 0;
+            text-align: center;
+        }
+        .cta-strip h2 { color: #ffffff; margin: 0 0 14px; text-align: center; }
+        .cta-strip p { color: rgba(255,255,255,0.85); font-size: 17px; margin: 0 0 28px; }
+        .button-outline {
+            display: inline-block;
+            border: 2px solid rgba(255,255,255,0.7);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-left: 12px;
+            transition: all 0.2s ease;
+        }
+        .button-outline:hover { background: rgba(255,255,255,0.15); }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .intro-grid,
+            .tuition-grid { grid-template-columns: 1fr; }
+            .tuition-photo-wrap { max-width: 460px; margin: 0 auto; }
+            .challenge-grid { grid-template-columns: repeat(2, 1fr); }
+            .partners-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .page-hero { height: 50vh; min-height: 300px; padding-bottom: 40px; }
+            .reach-grid { grid-template-columns: repeat(2, 1fr); }
+            .prog-grid,
+            .challenge-grid,
+            .tuition-summary { grid-template-columns: 1fr; }
+            .tuition-summary { max-width: 320px; gap: 12px; margin-bottom: 32px; }
+            .tuition-summary-card strong { font-size: 30px; }
+            .tuition-photo-wrap { padding: 10px; }
+            .tuition-photo { max-width: 100%; }
+        }
+    
+        /* ── Clean-up additions ── */
+        .story-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+        .story-box {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #f8fbff;
+            border: 1px solid #dce3f5;
+            border-left: 4px solid #2f55d4;
+            border-radius: 14px;
+            padding: 32px;
+            box-shadow: 0 4px 18px rgba(30,50,90,0.06);
+        }
+        .story-box p {
+            font-size: 17px;
+            color: #384558;
+            margin: 0;
+        }
+        .support-section {
+            background: #eef4ff;
+            padding: 70px 0;
+        }
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .support-grid h2 { text-align: left; }
+        .bank-box {
+            background: #ffffff;
+            border: 1px solid #dce3f5;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 18px rgba(30, 50, 90, 0.06);
+        }
+        .bank-box p { margin: 6px 0; }
+        .qr-placeholder {
+            margin-top: 18px;
+            width: 170px;
+            height: 170px;
+            border: 2px dashed #9db2e6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #344b91;
+            background: #f8fbff;
+            font-weight: bold;
+        }
+        @media (max-width: 900px) {
+            .support-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+            <img src="images/rpi-logo-blue-long.png" alt="Relief Projects India" class="site-logo">
+        </a>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="mountain-view-school.html">Mountain View School</a>
+            <a href="community-programs.html" class="active">Community Programmes</a>
+            <a href="contact.html">Donate &amp; Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <img src="images/awareness-program-for-adolescent-girls.jpg" alt="drug awareness programme" class="page-hero-img">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="container">
+                <span class="section-label" style="background:rgba(255,255,255,0.15); color:#ffffff;">Village Outreach</span>
+                <h1>Community Programmes</h1>
+                <p>Education support, health awareness, girls' empowerment, and family-strengthening work across rural Usilampatti.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro-section">
+        <div class="container intro-grid">
+            <div>
+                <span class="section-label">Why It Matters</span>
+                <h2>Supporting Children Beyond the Classroom</h2>
+                <p>Many children in rural Usilampatti face barriers that cannot be solved by schooling alone. Poverty, limited health awareness, early marriage, weak academic support at home, and restricted opportunities for girls all affect whether a child can learn and thrive.</p>
+                <p>RPI's community programmes work directly with villages, families, schools, local leaders, and government departments to address these barriers. The focus is practical and long-term: helping children stay in education, supporting adolescent girls, improving health awareness, and strengthening community protection systems.</p>
+            </div>
+            <div class="reach-grid">
+                <div class="reach-box"><strong>25</strong><span>Villages served</span></div>
+                <div class="reach-box"><strong>14,000+</strong><span>People reached</span></div>
+                <div class="reach-box"><strong>10</strong><span>Evening tuition centres</span></div>
+                <div class="reach-box"><strong>300+</strong><span>Children supported through tuition</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHALLENGES -->
+    <section class="context-section">
+        <div class="container">
+            <span class="section-label" style="background:rgba(255,255,255,0.15); color:#a8c4ff;">The Challenge</span>
+            <h2>Barriers Facing Rural Families</h2>
+            <p class="context-intro">Our programmes respond to the real pressures families face in and around Usilampatti, especially those affecting girls and children from low-income farming communities.</p>
+            <div class="challenge-grid">
+                <div class="challenge-card"><span class="icon">📚</span><h3>Weak Academic Support</h3><p>Many parents have limited formal education and children often need extra help to keep up with schoolwork.</p></div>
+                <div class="challenge-card"><span class="icon">👧</span><h3>Girls at Risk</h3><p>Girls face pressure to leave school early, marry young, or limit their ambitions because of social expectations.</p></div>
+                <div class="challenge-card"><span class="icon">🏥</span><h3>Health Awareness Gaps</h3><p>Families often lack reliable information about nutrition, menstrual hygiene, maternal health, TB, HIV, and preventive care.</p></div>
+                <div class="challenge-card"><span class="icon">🌾</span><h3>Poverty &amp; Migration</h3><p>Seasonal work, financial pressure, and lack of local opportunity disrupt children's education and family stability.</p></div>
+                <div class="challenge-card"><span class="icon">🛡️</span><h3>Child Protection Needs</h3><p>Vulnerable children and families need support, referral pathways, and trusted local adults who can respond early.</p></div>
+                <div class="challenge-card"><span class="icon">🤝</span><h3>Limited Access to Services</h3><p>Many families need help connecting with government schemes, health services, and protection systems.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENING TUITION -->
+    <section class="tuition-section">
+        <div class="container">
+            <span class="section-label">Education Support</span>
+            <h2>Free Evening Tuition Centres</h2>
+            <p class="tuition-intro">Village-based tuition centres give children attending government schools a safe place to study, revise lessons, and receive encouragement after school.</p>
+
+            <div class="tuition-summary">
+                <div class="tuition-summary-card"><strong>10</strong><span>Tuition centres</span></div>
+                <div class="tuition-summary-card"><strong>300+</strong><span>Children supported</span></div>
+                <div class="tuition-summary-card"><strong>25</strong><span>Villages reached</span></div>
+            </div>
+
+            <div class="tuition-grid">
+                <div class="tuition-photo-wrap">
+                    <img src="images/tuitions.jpg" alt="Children studying at an evening tuition centre" class="tuition-photo">
+                </div>
+                <div>
+                    <ul class="tuition-points">
+                        <li><span class="bullet">📖</span><span>After-school study support helps children keep up with lessons and build regular study habits.</span></li>
+                        <li><span class="bullet">👧</span><span>A strong focus on girls helps reduce dropout risk and builds confidence to continue education.</span></li>
+                        <li><span class="bullet">🏘️</span><span>Village-based centres remove travel barriers and make attendance safer and easier for children.</span></li>
+                        <li><span class="bullet">👨‍👩‍👧</span><span>Tutors work with families to encourage attendance, homework completion, and parental support.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMME AREAS -->
+    <section class="programmes-section">
+        <div class="container">
+            <span class="section-label">Programme Areas</span>
+            <h2>What We Do in Communities</h2>
+            <p class="programmes-intro">Six connected areas of work address the social, educational, health, and protection needs of children and families.</p>
+            <div class="prog-grid">
+                <article class="prog-card">
+                    <div class="prog-card-header">
+                        <div class="prog-icon" style="background:#eef4ff;">📚</div>
+                        <h3>Evening Tuition</h3>
+                    </div>
+                    <div class="prog-card-body">
+                        <p>Free study support for children in government schools, with special attention to those at risk of falling behind or dropping out.</p>
+                        <span class="prog-tag">Education</span><span class="prog-tag">Study support</span>
+                    </div>
+                </article>
+
+                <article class="prog-card">
+                    <div class="prog-card-header">
+                        <div class="prog-icon" style="background:#fff0f3;">👩‍🎓</div>
+                        <h3>Adolescent Wellbeing Initiative</h3>
+                    </div>
+                    <div class="prog-card-body">
+                        <p>Awareness and confidence-building programmes help girls stay in school, understand their rights, delay early marriage, and develop life skills. Sessions cover nutrition, menstrual hygiene, career guidance, child protection, and reproductive health.</p>
+                        <span class="prog-tag">Girls' education</span><span class="prog-tag">Delayed marriage</span>
+                    </div>
+                </article>
+
+                <article class="prog-card">
+                    <div class="prog-card-header">
+                        <div class="prog-icon" style="background:#edfaf6;">🏥</div>
+                        <h3>Health Awareness</h3>
+                    </div>
+                    <div class="prog-card-body">
+                        <p>Health education and screenings covering nutrition, hygiene, TB, HIV, maternal health, and cervical cancer awareness.</p>
+                        <span class="prog-tag">Health education</span>
+                    </div>
+                </article>
+
+                <article class="prog-card">
+                    <div class="prog-card-header">
+                        <div class="prog-icon" style="background:#fff8ec;">🌱</div>
+                        <h3>Free Medical and Eye Camps</h3>
+                    </div>
+                    <div class="prog-card-body">
+                        <p>In partnership with local hospitals and the renowned Aravind Eye Hospital, we organise health and eye screening camps for village communities, providing check-ups and referrals for follow-up treatment.</p>
+                        <span class="prog-tag">Health check-ups</span><span class="prog-tag">Medical referrals</span>
+                    </div>
+                </article>
+
+                <article class="prog-card">
+                    <div class="prog-card-header">
+                        <div class="prog-icon" style="background:#f0f2fa;">👩‍👩‍👧</div>
+                        <h3>Women's Empowerment</h3>
+                    </div>
+                    <div class="prog-card-body">
+                        <p>Work with women and families to promote gender equality, family wellbeing, and stronger support for children's education.</p>
+                        <span class="prog-tag">Women</span><span class="prog-tag">Family support</span>
+                    </div>
+                </article>
+
+                <article class="prog-card">
+                    <div class="prog-card-header">
+                        <div class="prog-icon" style="background:#eef4ff;">🛡️</div>
+                        <h3>Child Protection</h3>
+                    </div>
+                    <div class="prog-card-body">
+                        <p>Identification, referral, and support for vulnerable children and families, working with local leaders and government agencies.</p>
+                        <span class="prog-tag">Protection</span><span class="prog-tag">Referral support</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners-section">
+        <div class="container">
+            <span class="section-label">Partnerships</span>
+            <h2>Working With Local Systems</h2>
+            <p class="partners-intro">RPI works alongside existing community and government structures so families can access support, services, and protection more effectively.</p>
+            <div class="partners-grid">
+                <div class="partner-pill">Panchayat Leaders<span>Village-level coordination</span></div>
+                <div class="partner-pill">ICDS<span>Child development and nutrition links</span></div>
+                <div class="partner-pill">District Child Protection Unit<span>Child safety and referral support</span></div>
+                <div class="partner-pill">RNTCP / Health Services<span>TB awareness and treatment referral</span></div>
+                <div class="partner-pill">ICTC<span>HIV awareness and testing referral</span></div>
+                <div class="partner-pill">Schools &amp; Colleges<span>Life-skills and adolescent programmes</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT STORY -->
+    <section class="story-section">
+        <div class="container">
+            <span class="section-label">Community Impact</span>
+            <h2>Long-Term Presence Builds Trust</h2>
+            <div class="story-box">
+                <p>RPI's greatest strength is its long-term presence in the same villages. Families know the staff, tutors, and community workers. This trust makes it possible to discuss difficult issues such as girls' education, early marriage, health awareness, and child protection in a respectful and practical way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATE -->
+    <section class="support-section" id="donate">
+        <div class="container support-grid">
+            <div>
+                <h2>Support Community Programmes</h2>
+                <p>Your contribution helps fund evening tuition centres, health camps, girls' empowerment sessions, adolescent life-skills programmes, and family support across rural villages.</p>
+                <p>Donations allow RPI to continue walking alongside children and families over the long term.</p>
+            </div>
+            <div class="bank-box">
+                <h3>Ready to Help?</h3>
+                <p>Bank transfer details, tax-deduction information, and other ways to give are all on our donate page.</p>
+                <a href="contact.html#donate" class="button">Donate Now</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <p>&copy; Relief Projects India</p>
+        <p>Email: reliefprojects@gmail.com | Phone: +91 97902 68894</p>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
