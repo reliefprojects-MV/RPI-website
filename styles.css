@@ -177,12 +177,12 @@ h3 {
 }
 
 .eyebrow {
-    color: #6699ff;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 13px;
-    margin-bottom: 10px;
+	color: #CCFFFF;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 13px;
+	margin-bottom: 10px;
 }
 
 .hero-intro {
@@ -473,7 +473,7 @@ h3 {
     }
 
     .site-logo {
-        width: 300px;
+	width: 280px;
     }
 
     .split-grid,
